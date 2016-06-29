@@ -1,0 +1,2 @@
+# 0 5 * * 1 tar -zcf /var/backups/home.tgz /home/
+10 6 * * * /root/bin/backup.sh > /dev/null
