@@ -1,0 +1,6 @@
+5 * * * * awk '$9=405 {print $1}' /var/log/nginx/access.log.1|sort -n|uniq -c|awk '$1>5 {print $2}' >>/etc/iptables/badguys
+6 * * * * awk '/Accepted publickey for / {print $11}' /var/log/auth.log |sort|uniq >> /etc/iptables/whitelist2
+7 * * * * awk '/]: Failed password for root from / {print $11}' /var/log/auth.log|sort -n|uniq >>/etc/iptables/badguys
+8 * * * * awk '/]: Failed password for invalid user / {print $13}' /var/log/auth.log|sort -n|uniq >>/etc/iptables/badguys
+
+10 * * * * /root/bin/iptables-blacklist > /dev/null
