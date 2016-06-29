@@ -1,0 +1,2 @@
+# update on other vps that vps166 is alive - touch ~/.last.vps166
+0 * * * * for vps in vps61 vps172 vps230 vps232 vps114 vps116 vps64 vps139; do ssh -q -o strictHostKeyChecking=no -o ConnectTimeout=5  -i /root/.ssh/id_rsa cron@$vps.bveynde.lan "touch ~/.last.vps166"; done
